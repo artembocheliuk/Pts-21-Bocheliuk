@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wander the World</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container nav">
+      <h1 class="logo">Wander the World</h1>
+      <div class="burger" id="burger">☰</div>
+      <nav class="menu" id="menu">
+        <a href="#home">Головна</a>
+        <a href="#about">Про нас</a>
+        <a href="#services">Послуги</a>
+        <a href="#gallery">Фотогалерея</a>
+        <a href="#contacts">Контакти</a>
+      </nav>
+    </div>
+  </header>
+  <div class="snap-wrapper">
+    <section id="home" class="section home">
+      <video autoplay muted loop class="bg-video">
+        <source src="video/bg-video.webm" type="video/mp4">
+        Ваш браузер не підтримує відео.
+      </video>
+      <div class="overlay">
+        <h2>Ласкаво просимо!</h2>
+        <p>Відкрийте світ з нашою професійною командою подорожей.</p>
+        <a href="https://www.youtube.com/watch?v=D7SlK16o82o" class="btn">Дізнатись більше</a>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="content-box">
+        <h2>Про нас</h2>
+        <p>Ми — команда досвідчених мандрівників, яка допоможе вам відкрити нові горизонти. Ми організовуємо унікальні тури та екскурсії для любителів пригод.</p>
+      </div>
+    </section>
+
+    <section id="services" class="section services">
+      <div class="content-box">
+        <h2>Купити тур</h2>
+        <ul class="offers-list">
+          <li class="offer-card">
+            <h3>Карпати: Вікенд у горах</h3>
+            <p class="desc-blue">3 дні/2 ночі, проживання та екскурсії включено.</p>
+            <button class="btn">Купити за 3600 грн</button>
+          </li>
+          <li class="offer-card">
+            <h3>Львів: Місто кави</h3>
+            <p class="desc-blue">2 дні/1 ніч, дегустація кави та прогулянка містом.</p>
+            <button class="btn">Купити за 2200 грн</button>
+          </li>
+          <li class="offer-card">
+            <h3>Одеса: Морський відпочинок</h3>
+            <p class="desc-blue">5 днів/4 ночі, готель біля моря та екскурсія портом.</p>
+            <button class="btn">Купити за 5400 грн</button>
+          </li>
+        </ul>
+        <p>Обирайте тур та вирушайте у незабутню подорож!</p>
+      </div>
+    </section>
+
+    <section id="gallery" class="section gallery">
+      <div class="content-box">
+        <h2>Фотогалерея</h2>
+        <div class="gallery-slider">
+          <button class="prev"><h1><</h1></button>
+          <img src="photo/6-1.jpg" alt="Gallery image 1" id="slider-image">
+          <button class="next"><h1>></h1></button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section id="contacts" class="section contacts">
+    <div class="content-box">
+      <h2>Зв'яжіться з нами</h2>
+      <form action="#" method="post" class="contact-us-form">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Ваше ім'я" required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Ваш Email" required>
+        </div>
+        <div class="form-group">
+          <textarea name="message" rows="4" placeholder="Ваше повідомлення" required></textarea>
+        </div>
+        <button type="submit" class="btn">Відправити</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2025 Wander the World | Усі права захищено
+  </footer>
+
+  <script>
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+
+    burger.onclick = () => {
+      menu.classList.toggle('active');
+    };
+
+    document.querySelectorAll('#menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('active');
+      });
+    });
+
+    const sliderImage = document.getElementById('slider-image');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+
+    const images = [
+      "photo/6-1.jpg",
+      "photo/6-2.jpg",
+      "photo/6-3.jpg"
+    ];
+    let currentIndex = 0;
+
+    function updateImage() {
+      sliderImage.src = images[currentIndex];
+      sliderImage.alt = "Gallery image " + (currentIndex + 1);
+    }
+
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateImage();
+    });
+
+    document.querySelectorAll('.offers-list .btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('contacts').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>

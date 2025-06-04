@@ -1,0 +1,409 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  background-color: #121212;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header {
+  background: rgba(0, 0, 0, 0.85);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+.section {
+  height: 100vh;
+  scroll-snap-align: start;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+
+.logo {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #00bcd4;
+}
+
+.menu {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.menu a {
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: #00bcd4;
+}
+
+.burger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* Hero section with video */
+.home {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute; /* Position the overlay absolutely within the .home section */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6); /* Darker for better readability */
+  padding: 2rem;
+  border-radius: 20px; /* Rounded corners */
+  text-align: center;
+  max-width: 90%;
+}
+
+.overlay h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.overlay p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: #00bcd4;
+  color: #fff;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #0097a7;
+}
+
+/* Other sections */
+.section {
+  padding: 6rem 2rem;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  text-align: center;
+}
+
+.content-box {
+  background: rgba(0,0,0,0.7);
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 800px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.about {
+  background-image: url('photo/7.jpg');
+}
+
+.services {
+  background-image: url('photo/8.jpg');
+}
+
+.gallery {
+  background-image: url('photo/9.jpg');
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.gallery-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 1rem;
+}
+
+.gallery-slider img {
+  width: 80%;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.gallery-slider button {
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin: 0 1rem;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.gallery-slider button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.contacts {
+  background-image: url('photo/10.jpg');
+}
+
+.footer {
+  background-color: #111;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.offers-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.offer-card {
+  background: rgba(255,255,255,0.07);
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(0,188,212,0.08);
+  padding: 2rem 1.5rem;
+  min-width: 260px;
+  max-width: 320px;
+  flex: 1 1 260px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 1rem;
+}
+
+.offer-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(0,188,212,0.18);
+}
+
+.offer-card h3 {
+  color: #fff;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.offer-card p {
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.offer-card .btn {
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+.offer-card .desc-blue {
+  color: #b2ebf2;
+}
+
+.offer-card .desc-yellow {
+  color: #ffe082;
+}
+
+.services .content-box h2 {
+  color: #00bcd4;
+  margin-bottom: 2rem;
+}
+
+.services .content-box p:last-child {
+  margin-top: 2.5rem;
+  color: #b2ebf2;
+  font-size: 1.1rem;
+}
+
+.contact-form {
+  background-image: url('photo/11.jpg');
+}
+
+.contact-us-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.contact-us-form .form-group {
+  width: 100%;
+}
+
+.contact-us-form input,
+.contact-us-form textarea {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  margin-bottom: 0.5rem;
+  outline: none;
+  transition: background 0.2s;
+}
+
+.contact-us-form input:focus,
+.contact-us-form textarea:focus {
+  background: rgba(0,188,212,0.13);
+}
+
+.contact-us-form textarea {
+  resize: vertical;
+  min-height: 100px;
+  max-height: 300px;
+}
+
+.contact-us-form .btn {
+  width: 180px;
+  align-self: center;
+  margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section {
+    height: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu a {
+    padding: 1rem;
+    border-top: 1px solid #333;
+    font-size: 1.2rem;      
+    letter-spacing: 0.05rem;
+    text-transform: uppercase; 
+    font-weight: bold;       
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+  }
+
+  .overlay {
+    padding: 1rem;
+    max-width: 90%;
+  }
+  
+  .overlay h2 {
+    font-size: 1.8rem;
+  }
+  
+  .overlay p {
+    font-size: 1rem;
+  }
+  
+  .btn {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Ensures the iframe fits the container */
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.custom-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Use a semi-transparent color to mask distractions */
+  background: rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
